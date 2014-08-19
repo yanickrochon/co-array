@@ -1,0 +1,40 @@
+{
+  "name": "co-array",
+  "version": "0.0.1",
+  "description": "Asynchronous array API for co.",
+  "author": "Yanick Rochon <yanick.rochon@gmail.com>",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --harmony"
+  },
+  "homepage": "https://github.com/yanickrochon/co-array",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yanickrochon/co-array"
+  },
+  "bugs": {
+    "url": "https://github.com/yanickrochon/co-array/issues"
+  },
+  "keywords": [
+    "co",
+    "asynchronous",
+    "array",
+    "generator",
+    "every",
+    "filter",
+    "find",
+    "findIndex",
+    "forEach",
+    "map",
+    "reduce",
+    "reduceRight",
+    "some",
+    "sort"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "co-mocha": "^1.0.0",
+    "semicov": "^0.1.1-2",
+    "should": "^4.0.4"
+  }
+}
