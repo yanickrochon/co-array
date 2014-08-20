@@ -17,17 +17,22 @@ var coArray = require('co-array');
 co(function * () {
   var items = yield fetchAllItems();
 
-  items = yield coArray.filter(items, function * (item) {
-    return yield itemFilter(item);
-  });
-
-  return yield coArray.sort(items, itemSorter);
+  return yield coArray(items)
+    .filter(itemFilter)
+    .sort(itemSorter)
+    .result;
 })(function (err, items) {
 
   console.log("Resulting items:", items);
 
 });
+
+function * itemFilter(item) { ... }
+function * itemSorter(a, b) { ... }
 ```
+
+**NOTE** : The basic usage is `yield coArray(arr).result;` which will return `arr`.
+
 
 ## Available functions
 
@@ -44,10 +49,15 @@ Each of the following functions require two argument; an `Array` and a `Function
 * **some**
 * **sort**
 
+Each function is processed in their calling order.
 
-## Limitations
+Each function may be loaded individually. For example :
 
-This asynchronous replacements cannot be chained directly.
+```javascript
+var forEach = require('co-array/lib/for-each');
+
+yield forEach(arr, function * (item) { ... });
+```
 
 
 ## Contribution
