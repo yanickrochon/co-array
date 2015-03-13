@@ -1,6 +1,27 @@
 # co-array
 
-Asynchronous array API for co.
+... is deprecated!
+
+## Deprecation
+
+As I learned more about `co`, thunks, promises, and generators, I figured that this module only adds little to things that can be done in a more "native" approach.
+
+Basically, using only the native functions of the array can achieve the same principle. With a combination of `.map` and `.filter`, most of the functionalities become obsolete. Chain with other native array functions to complete the missing features.
+
+
+```
+(yield ['foo', true, 'bar'].map(function (item) {
+  return function * () {
+    return item === true ? undefined : item + '!';
+  };
+})).filter(function (item) {
+  return item !== undefined;
+}).sort(function (a, b) {
+  return a.localeCompare(b);
+}).reduce(function (accu, item, index) {
+  return accu  + '::' + index + '::' + item;
+}));    // "bar!::1::foo!"
+```
 
 
 ## Installation

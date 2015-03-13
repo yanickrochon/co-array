@@ -1,6 +1,6 @@
 {
   "name": "co-array",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Asynchronous array API for co.",
   "author": "Yanick Rochon <yanick.rochon@gmail.com>",
   "main": "lib/index.js",
